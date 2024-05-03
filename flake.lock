@@ -41,14 +41,15 @@
     },
     "top-level": {
       "inputs": {
-        "core": "core"
+        "core": "core",
+        "javascript": []
       },
       "locked": {
-        "lastModified": 1714721516,
-        "narHash": "sha256-04E6qNm5gf5sSP528aSv2VUdU9ykpsC2Yu3Uramo6Ko=",
+        "lastModified": 1714721914,
+        "narHash": "sha256-NM84dgutDOxTo4mIrXRWI9C32saFQvfQtq/JeG+MvUU=",
         "owner": "auxolotl",
         "repo": "top-level",
-        "rev": "a2a51b834d33fc75df6ea3db55db65a8c4f305b9",
+        "rev": "a0907c348e5b71d5c413e4cdc297c0c538b996e4",
         "type": "github"
       },
       "original": {

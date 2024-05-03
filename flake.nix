@@ -2,6 +2,7 @@
   inputs = {
     top-level = {
       url = "github:auxolotl/top-level";
+      inputs.javascript.follows = "";
     };
   };
 
