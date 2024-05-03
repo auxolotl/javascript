@@ -1,14 +1,27 @@
 {
   inputs = {
-    top-level = {
-      url = "github:auxolotl/top-level";
-      inputs.javascript.follows = "";
-    };
+    core.url = "github:auxolotl/core";
   };
 
-  outputs = { self, top-level }: {
-    topLevelOut = core: {
-      test = top-level.core.nixPackages."x86_64-linux".hello;
+  outputs =
+    { self, core }:
+    let
+      forAllSystems =
+        function:
+        core.lib.genAttrs core.lib.systems.flakeExposed (
+          system:
+          function {
+            nixPackages = core.nixPackages.${system};
+            # auxPackages = core.auxPackages.${system};
+          }
+        );
+    in
+    {
+      packages = forAllSystems (
+        { nixPackages, ... }:
+        {
+          test = nixPackages.hello;
+        }
+      );
     };
-  };
 }
