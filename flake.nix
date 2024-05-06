@@ -20,7 +20,14 @@
       packages = forAllSystems (
         { nixPackages, ... }:
         {
-          test = nixPackages.hello;
+          nodejs = rec {
+            v18 = nixPackages.callPackage ./runtimes/nodejs/v18.nix { };
+            v20 = nixPackages.callPackage ./runtimes/nodejs/v20.nix { };
+            v22 = nixPackages.callPackage ./runtimes/nodejs/v22.nix { };
+
+            lts = v20;
+            latest = v22;
+          };
         }
       );
     };
