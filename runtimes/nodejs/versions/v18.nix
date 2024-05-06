@@ -21,7 +21,7 @@ let
     else
       packages.stdenv;
 
-  buildNodejs = callPackage ./nodejs.nix {
+  buildNodejs = callPackage ../nodejs.nix {
     inherit openssl;
     stdenv = ensureCompatibleCC pkgs;
     buildPackages = buildPackages // {
@@ -35,10 +35,10 @@ buildNodejs {
   version = "18.20.2";
   sha256 = "sha256-iq6nycfpJ/sJ2RSY2jEbbk0YIzOQ4jxyOlO4kfrUxz8=";
   patches = [
-    ./disable-darwin-v8-system-instrumentation.patch
-    ./bypass-darwin-xcrun-node16.patch
-    ./revert-arm64-pointer-auth.patch
-    ./node-npm-build-npm-package-logic.patch
-    ./trap-handler-backport.patch
+    ../patches/disable-darwin-v8-system-instrumentation.patch
+    ../patches/bypass-darwin-xcrun-node16.patch
+    ../patches/revert-arm64-pointer-auth.patch
+    ../patches/node-npm-build-npm-package-logic.patch
+    ../patches/trap-handler-backport.patch
   ];
 }

@@ -21,9 +21,9 @@
         { nixPackages, ... }:
         {
           nodejs = rec {
-            v18 = nixPackages.callPackage ./runtimes/nodejs/v18.nix { };
-            v20 = nixPackages.callPackage ./runtimes/nodejs/v20.nix { };
-            v22 = nixPackages.callPackage ./runtimes/nodejs/v22.nix { };
+            v18 = nixPackages.callPackage ./runtimes/nodejs/versions/v18.nix { };
+            v20 = nixPackages.callPackage ./runtimes/nodejs/versions/v20.nix { };
+            v22 = nixPackages.callPackage ./runtimes/nodejs/versions/v22.nix { };
 
             lts = v20;
             latest = v22;
