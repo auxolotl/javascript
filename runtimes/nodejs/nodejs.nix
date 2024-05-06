@@ -190,7 +190,8 @@ let
 
     passthru.interpreterName = "nodejs";
 
-    passthru.pkgs = callPackage ../../node-packages/default.nix { nodejs = self; };
+    # TODO: Define Node package set
+    # passthru.pkgs = callPackage ../../node-packages/default.nix { nodejs = self; };
 
     setupHook = ./setup-hook.sh;
 
@@ -271,7 +272,7 @@ let
       EOF
     '';
 
-    passthru.updateScript = import ./update.nix {
+    passthru.updateScript = import ./updater {
       inherit
         writeScript
         coreutils
